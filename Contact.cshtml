@@ -1,0 +1,74 @@
+﻿<body>
+    <section id="contact" class="container-fluid d-flex flex-column align-items-center justify-content-center">
+        <div class="container-fluid text-center contact ">
+            <div class="display-1"><b>Contact</b></div>
+            <h5 class="fst-italic">Get In Touch With <span>Us</span></h5>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <div class="row justify-content-center" style="display:flex;align-content:space-around;">
+
+                            <div class="col-md-6 info d-flex flex-column align-items-stretch">
+                                <i class="bx bx-map"></i>
+                                <h4>Address</h4>
+                                <p>A108 Adam Street,<br>New York, NY 535022</p>
+                            </div>
+                            <div class="col-md-6 info d-flex flex-column align-items-stretch">
+                                <i class="bx bx-phone"></i>
+                                <h4>Call Us</h4>
+                                <p>+1 5589 55488 55<br>+1 5589 22548 64</p>
+                            </div>
+                            <div class="col-md-6 info d-flex flex-column align-items-stretch">
+                                <i class="bx bx-envelope"></i>
+                                <h4>Email Us</h4>
+                                <p>contact@example.com<br>info@example.com</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" name="name" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="email">Your Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="subject">Subject</label>
+                                <input type="text" class="form-control" name="subject" id="subject" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" name="message" rows="8" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center mt-2 mb-2"><button type="submit">Send Message</button></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+  
+</body>
+@section ContactCss {
+    <link rel="stylesheet" href="~/css/Contact.css" asp-append-version="true" />
+}

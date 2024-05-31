@@ -1,0 +1,103 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.s-btn {
+    background-image: linear-gradient(to left, white,black,white);
+    border: none;
+    border-radius: 10px;
+}
+
+:root {
+    --primary-font-family: 'Poppins', sans-serif;
+    --light-white: #f5f8fa;
+    --gray: #5e6278;
+    --gray-1: #e3e3e3;
+}
+
+body {
+    font-family: var(--primary-font-family);
+    font-size: 14px;
+    background-image: url('img/a(2).jpg');
+    background-size: cover;
+    object-fit: cover;
+    background-position: center center;
+}
+
+.wrapper {
+    padding: 0;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background: #111;
+    overflow-y: auto;
+    width: 450px;
+}
+.r1 {
+    color: antiquewhite;
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    background-color: rgba(250, 235, 215, 0.5);
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
+}
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px;
+    background: linear-gradient(to left, #00ffff, #FF02FF);
+    animation: marquee-animation 10s linear infinite;
+}
+
+@keyframes marquee-animation {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.wrapper input {
+    background-color: var(--light-white);
+    border-color: var(--light-white);
+    color: var(--gray);
+}
+
+h3 {
+    color: black;
+}
+
+h1 {
+    color: black;
+}
+
+p {
+    color: black;
+    text-decoration: none;
+}
+
+.btn-custom:hover {
+    background: #fff;
+    color: darkgoldenrod;
+    /* Change text color on hover */
+}
+
+form {
+    padding: 10px;
+    border: 5px solid var(--gray-1);
+    padding-bottom: 0; /* Remove padding from the bottom */
+    margin: 50px auto; /* Center the form horizontally and add 50px margin from the top */
+    max-width: 500px; /* Set maximum width to avoid forms becoming too wide */
+    width: 90%; /* Fallback width for smaller screens */
+}
+
+.f1 {
+    padding: 10px;
+    padding-bottom: 0; /* Remove padding from the bottom */
+    margin: 10px auto; /* Center the form horizontally and add 50px margin from the top */
+    width: 90%; /* Fallback width for smaller screens */
+}

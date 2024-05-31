@@ -1,0 +1,41 @@
+﻿/* styles.css */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color:aliceblue;
+}
+
+footer .r1{
+    margin-top: auto;
+    padding-top:120px;
+    padding-bottom:100px;
+}
+
+header {
+
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b, #86a8e7);
+}
+
+
+navbar-brand {
+    color: #fff;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: bold; 
+    font-style: italic; 
+}
+.navbar-nav .nav-link:hover {
+    color:blueviolet; /* Font color on hover */
+}
+
+/*    background-color: rgba(250, 125, 105, 0.5);
+    padding: 10px 0;
+}*/
+.navigation{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.navbar-nav .nav-link {
+    color: #fff; 
+    font-family: 'Roboto', sans-serif; 
+    transition: color 0.3s; 
+}
