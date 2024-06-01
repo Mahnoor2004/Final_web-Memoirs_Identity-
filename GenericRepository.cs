@@ -14,20 +14,22 @@ namespace WebApplication1.Models
         {
             connectionString = conn;
         }
-
-        public void Add(TEntity entity)
+        public void Add(string userEmail, TEntity entity)
         {
             using (var connection = new SqlConnection(connectionString))
             {
                 var tableName = typeof(TEntity).Name;
                 var properties = typeof(TEntity).GetProperties().Where(p => p.Name != "Id");
 
-                var columnsNames = string.Join(",", properties.Select(p => p.Name));
-                var parameterNames = string.Join(",", properties.Select(p => "@" + p.Name));
+                // Include the email column
+                var columnsNames = "UserEmail," + string.Join(",", properties.Select(p => p.Name));
+                var parameterNames = "@UserEmail," + string.Join(",", properties.Select(p => "@" + p.Name));
 
                 var query = $"INSERT INTO {tableName} ({columnsNames}) VALUES ({parameterNames})";
 
                 var parameters = new DynamicParameters();
+                // Add the email parameter
+                parameters.Add("@UserEmail", userEmail);
                 foreach (var property in properties)
                 {
                     parameters.Add("@" + property.Name, property.GetValue(entity));
@@ -37,23 +39,47 @@ namespace WebApplication1.Models
             }
         }
 
-        public TEntity Get(int id)
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var tableName = typeof(TEntity).Name;
-                var query = $"SELECT * FROM {tableName} WHERE Id = @Id";
-                return connection.QuerySingleOrDefault<TEntity>(query, new { Id = id });
-            }
-        }
 
-        public IEnumerable<TEntity> GetAll()
+        //public void Add(TEntity entity)
+        //{
+        //    using (var connection = new SqlConnection(connectionString))
+        //    {
+        //        var tableName = typeof(TEntity).Name;
+        //        var properties = typeof(TEntity).GetProperties().Where(p => p.Name != "Id");
+
+        //        var columnsNames = string.Join(",", properties.Select(p => p.Name));
+        //        var parameterNames = string.Join(",", properties.Select(p => "@" + p.Name));
+
+        //        var query = $"INSERT INTO {tableName} ({columnsNames}) VALUES ({parameterNames})";
+
+        //        var parameters = new DynamicParameters();
+        //        foreach (var property in properties)
+        //        {
+        //            parameters.Add("@" + property.Name, property.GetValue(entity));
+        //        }
+
+        //        connection.Execute(query, parameters);
+        //    }
+        //}
+
+        //public TEntity Get(int id)
+        //{
+        //    using (var connection = new SqlConnection(connectionString))
+        //    {
+        //        var tableName = typeof(TEntity).Name;
+        //        var query = $"SELECT * FROM {tableName} WHERE Id = @Id";
+        //        return connection.QuerySingleOrDefault<TEntity>(query, new { Id = id });
+        //    }
+        //}
+
+
+        public IEnumerable<TEntity> GetAll(string userEmail)
         {
             using (var connection = new SqlConnection(connectionString))
             {
                 var tableName = typeof(TEntity).Name;
-                var query = $"SELECT * FROM {tableName}";
-                return connection.Query<TEntity>(query).ToList();
+                var query = $"SELECT * FROM {tableName} WHERE UserEmail = @UserEmail";
+                return connection.Query<TEntity>(query, new { UserEmail = userEmail }).ToList();
             }
         }
 
