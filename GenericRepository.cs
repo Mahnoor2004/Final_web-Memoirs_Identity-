@@ -83,7 +83,7 @@ namespace WebApplication1.Models
             }
         }
 
-        public void Update(TEntity entity)
+        public void Update(TEntity entity, string userEmail)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -93,15 +93,19 @@ namespace WebApplication1.Models
                 var setClause = string.Join(",", properties.Select(p => $"{p.Name} = @{p.Name}"));
                 var query = $"UPDATE {tableName} SET {setClause} WHERE Id = @Id";
 
-                var parameters = new DynamicParameters();
-                foreach (var property in properties)
-                {
-                    parameters.Add("@" + property.Name, property.GetValue(entity));
-                }
-                var idProperty = typeof(TEntity).GetProperty("Id");
-                parameters.Add("@Id", idProperty.GetValue(entity));
+                var parameters = new DynamicParameters(entity);
+                parameters.Add("Id", entity.GetType().GetProperty("Id").GetValue(entity));
 
                 connection.Execute(query, parameters);
+            }
+        }
+        public TEntity GetById(int id)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var tableName = typeof(TEntity).Name;
+                var query = $"SELECT * FROM {tableName} WHERE Id = @Id";
+                return connection.QueryFirstOrDefault<TEntity>(query, new { Id = id });
             }
         }
 
