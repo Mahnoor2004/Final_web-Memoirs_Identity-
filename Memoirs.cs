@@ -11,5 +11,3 @@
         public DateTime DateWritten { get; set; } = DateTime.Now;
     }
 }
-
-

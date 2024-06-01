@@ -1,155 +1,22 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
-
-<body>
-    <div class="container-fluid" id="hero">
-            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-                <ol class="carousel-indicators" id="hero-carousel-indicators">
-                    <li data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#heroCarousel" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#heroCarousel" data-bs-slide-to="2"></li>
-                </ol>
-
-                <div class="carousel-inner">
-
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active" style="background-image: url('/css/img/c (1).jpg')">
-                        <div class="carousel-container">
-                            <div class="container">
-                                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Mind Memos</span></h2>
-                                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="carousel-item" style="background-image: url('/css/img/c (2).jpg')">
-                        <div class="carousel-container">
-                            <div class="container">
-                                <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-item" style="background-image: url('/css/img/c (3).jpg')">
-                        <div class="carousel-container">
-                            <div class="container">
-                                <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-
-            </div>
-    </div>
-
-    <div class="container quality bg-light mt-2 mb-2">
-        <div class="row " style="border-radius:20px; background-color: darkseagreen;">
-            <div class="col-sm-5 col-md-5 col-lg-5">
-                <img src="~/css/img/d1.jpg" class="pt-2 pb-2">
-            </div>
-            <div class="col-sm-7 col-md-7 col-lg-7">
-                <div>
-                    <p class="display-4 calming-text p-4" style="font-family: 'Times New Roman', Times, serif;"><strong>YOUR DIGITAL DIARY</strong></p>
-                    <hr>
-                    <p class="p-4">
-                        Keep your memories safe and organized with our digital diary platform. Capture your thoughts, experiences, and emotions wherever you go, accessible anytime, anywhere.
-                    </p>
-                </div>
-            </div>
+<section class="container ">
+    <div class="row justify-content-center align-items-center py-5">
+        <div class="col-12 text-center " style="padding:40px;">
+            <span class="display-2 "><b>Save your Memories</b></span>
+        </div>
+        <div class="col-12 mt-3 ">
+            <ul class="list-unstyled d-flex flex-wrap justify-content-center">
+                <li class="mx-3 my-2"><a href="/Entries/Create" class="btn btn-primary btn-custom">Add</a></li>
+                <li class="mx-3 my-2"><a href="/Entries/Index1" class="btn btn-primary btn-custom">Update</a></li>
+                <li class="mx-3 my-2"><a href="/Entries/Delete" class="btn btn-primary btn-custom">Delete</a></li>
+                <li class="mx-3 my-2"><a href="#" class="btn btn-primary btn-custom">Get All</a></li>
+            </ul>
         </div>
     </div>
-    <main class="container-fluid" id="main">
-        <section class="why-us mt-5 mb-5" id="why-us">
-            <div class="container">
+</section>
 
-                <div class="row text-centre mt-5">
-                    <div class="col-12 text-centre">
-                         <h1 class="text-centre"><b>Unlock Your Mind's Memoirs with Mind Memos</b></h1>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-lg-4">
-                        <div class="box">
-                            <span>01</span>
-                            <h3><b>User-Friendly Interface</b></h3>
-                            <p>Enjoy a seamless experience with our intuitive digital diary interface.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mt-4 mt-lg-0">
-                        <div class="box">
-                            <span>02</span>
-                            <h3><b>Easy Organization</b></h3>
-                            <p>Effortlessly manage your daily tasks, events, and appointments..</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mt-4 mt-lg-0">
-                        <div class="box">
-                            <span>03</span>
-                            <h3><b>Secure Memories</b></h3>
-                            <p>Trust us to safeguard your precious memories with top-notch security measures.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-       </main>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 heading text-decoration-underline">
-                <h2>Write your own story</h2>
-            </div>
-        </div >
-            <div class="row mt-2 gx-2 justify-content-between justify-content-md-evenly">
-            <div class="col-2 ">
-                <img src="~/css/img/c (1).jpg" width="250px" />
-            </div>
-            <div class="col-2 ">
-                <img src="~/css/img/c (2).jpg" width="250px" />
-            </div>
-            <div class="col-2 ">
-                <img src="~/css/img/c (1).jpg" width="250px" />
-            </div>
-            <div class="col-2 ">
-                <img src="~/css/img/c (1).jpg" width="250px" />
-            </div>
-        </div>
-        <div class="row mt-2 gx-2 justify-content-between justify-content-evenly">
-            <div class="col-2 ">
-                <img src="~/css/img/c (1).jpg" width="250px" />
-            </div>
-            <div class="col-2 ">
-                <img src="~/css/img/c (2).jpg" width="250px" />
-            </div>
-            <div class="col-2 ">
-                <img src="~/css/img/c (3).jpg" width="250px" />
-            </div>
-            <div class="col-2 ">
-                <img src="~/css/img/c (3).jpg" width="250px" />
-            </div>
-        </div>
-    </div>
-
-</body>
-@section HomeCss {
-    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+@section EntriesCss {
+    <link rel="stylesheet" href="~/css/Entriescss.css" asp-append-version="false" />
 }

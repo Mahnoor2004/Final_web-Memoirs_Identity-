@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace WebApplication1.Models
 {
     public interface IRepository<TEntity> where TEntity : class
     {
         void Add(string userEmail, TEntity entity);
-        //TEntity Get(int id);
-        //IEnumerable<TEntity> GetAll();
+        public TEntity GetById(int id);
         public IEnumerable<TEntity> GetAll(string userEmail);
-        void Update(TEntity entity);
-        void Delete(int id);
+        void Update(TEntity entity, string userEmail);
+        bool Delete(int id,string userEmail);
+
     }
 }

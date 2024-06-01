@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model IEnumerable<WebApplication1.Models.Memoirs>
+
+@if (Model != null && Model.Any())
+{
+    <div id="search-results">
+        <h3>Search Results</h3>
+        <ul>
+            @foreach (var memoir in Model)
+            {
+                <li>@memoir.Title</li>
+                <!-- Add additional properties you want to display -->
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <p>No search results found.</p>
+}
+
