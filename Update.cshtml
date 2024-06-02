@@ -3,12 +3,10 @@
     ViewData["Title"] = "Edit Memoir";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
-
 <h1 class="text-center">Edit Memoir</h1>
-
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <form asp-action="Update">
                 <input type="hidden" asp-for="Id" />
 
@@ -19,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Content" class="control-label">Content</label>
-                    <textarea asp-for="Content" class="form-control" rows="6"></textarea>
+                    <textarea id="editor" asp-for="Content" class="form-control" rows="6"></textarea>
                     <span asp-validation-for="Content" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -27,20 +25,27 @@
                     <input asp-for="Tags" class="form-control" />
                     <span asp-validation-for="Tags" class="text-danger"></span>
                 </div>
-                <div class="form-group text-center">
+
+                <div class="card-footer text-center">
                     <button type="submit" class="btn btn-primary">Update Memoir</button>
+                    <a asp-action="Index1" class="btn btn-secondary mx-2">Back to List</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
 
 @section EntriesCss {
     <link rel="stylesheet" href="~/css/Entriescss.css" asp-append-version="false" />
 }
-
-
-@* @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-} *@

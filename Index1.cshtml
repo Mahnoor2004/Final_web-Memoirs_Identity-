@@ -11,7 +11,7 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-<h1 class="container-fluid text-center mt-4">Memoirs List</h1>
+<h1 class="container-fluid text-center mt-4"><b>Memoirs List</b></h1>
 
 <div class="container">
     <div class="row">
@@ -20,17 +20,6 @@
                 <a asp-action="Create" class="btn btn-primary">Create New Memoir</a>
             </p>
             
-            <!-- Search Form -->
-@*             <form id="search-form" class="mb-3">
-                <div class="form-group">
-                    <input type="text" name="query" class="form-control" placeholder="Search...">
-                </div>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form> *@
-            
-            <!-- Display Search Results -->
-@*             @Html.Partial("_SearchResultsPartial", Model)
- *@            
             <!-- Table of Memoirs -->
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -65,65 +54,10 @@
     </div>
 </div>
 
-@section Scripts {
-    <script>
-        // Handle AJAX form submission for search
-        $(function () {
-            $('#search-form').submit(function (e) {
-                e.preventDefault(); // Prevent default form submission
-                var query = $(this).serialize(); // Serialize form data
-                $.ajax({
-                    url: '@Url.Action("Index1", "ControllerName")', // Adjust the URL to point to your controller
-                    type: 'GET',
-                    data: query, // Pass serialized form data as query parameters
-                    success: function (result) {
-                        $('#search-results').html(result); // Replace search results with received HTML
-                    }
-                });
-            });
-        });
-    </script>
+
 }
 
 
-@* <h1 class="container-fluid text-center mt-4">Memoirs List</h1>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <p>
-                <a asp-action="Create" class="btn btn-primary">Create New Memoir</a>
-            </p>
-            @Html.Partial("_SearchResultsPartial", Model)
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>@Html.DisplayNameFor(model => model.Id)</th>
-                            <th>@Html.DisplayNameFor(model => model.Title)</th>
-                            <th>@Html.DisplayNameFor(model => model.DateWritten)</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                                <td>@Html.DisplayFor(modelItem => item.DateWritten)</td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
-                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div> *@
+@section EntriesCss {
+    <link rel="stylesheet" href="~/css/Entriescss.css" asp-append-version="false" />
+}

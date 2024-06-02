@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication1.Models.Memoirs>
+
+@{
+    ViewData["Title"] = "Memoirs";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1 class="container-fluid text-center mt-4"><b>Memoirs List</b></h1>
+
+@if (Model.Any())
+{
+    <div class="table-responsive justify-content-center  align-content-center">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Date Written</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.DateWritten.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p class="text-center mt-4">No memoirs found.</p>
+}
+
+@section EntriesCss {
+    <link rel="stylesheet" href="~/css/Entriescss.css" asp-append-version="false" />
+}

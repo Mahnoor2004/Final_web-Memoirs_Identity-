@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Memoir Details";
     Layout = "~/Views/Shared/_Layout1.cshtml";
-
 }
 
 <section class="container mt-5">
@@ -27,7 +26,7 @@
                             @Html.DisplayNameFor(model => model.Content)
                         </div>
                         <div class="col-sm-8">
-                            @Html.DisplayFor(model => model.Content)
+                            @Html.Raw(Model.Content)
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -36,14 +35,6 @@
                         </div>
                         <div class="col-sm-8">
                             @Html.DisplayFor(model => model.Tags)
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-sm-4 font-weight-bold">
-                            @Html.DisplayNameFor(model => model.DateWritten)
-                        </div>
-                        <div class="col-sm-8">
-                            @Html.DisplayFor(model => model.DateWritten)
                         </div>
                     </div>
                 </div>

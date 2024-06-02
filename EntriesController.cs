@@ -1,17 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize(Policy = "RequireAuthenticatedUser")]
     public class EntriesController : Controller
     {
+        
 
         private readonly IRepository<Memoirs> _repository;
-
+        
         public EntriesController()
         {
             _repository = new GenericRepository<Memoirs>("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MM_DB;Integrated Security=True;");
         }
+
         public IActionResult Index()
         {
             return View();
@@ -45,6 +49,13 @@ namespace WebApplication1.Controllers
             return View(_repository.GetAll(userEmail).ToList());
 
         }
+        public IActionResult GetAll()
+        {
+            string userEmail = User.Identity.Name;
+            var memoirs= _repository.GetAll(userEmail).ToList();
+            return View(memoirs);
+        }
+
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -125,10 +136,6 @@ namespace WebApplication1.Controllers
         {
             return RedirectToAction("Delete", new { id = selectedMemoirId });
         }
-        //public IActionResult SuccessMessage()
-        //{
-        //    return View();
-        //}
         public IActionResult TaskNotFound()
         {
             return View("TaskNotFound");
